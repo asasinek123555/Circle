@@ -10,6 +10,6 @@
 			echo $text[3];
 			echo $text[4];
 			echo $text[5];
-			echo $text[6];
+			echo $text[6].PHP_EOL;
 	}
 ?>
