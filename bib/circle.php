@@ -1,48 +1,35 @@
 <?php
 
-function white($radius)
-{
-	for($i=0;$i<$radius;$i++)
-	{
-		echo ' ';
-	}
-}
-
-function single($radius)
-{
-	white($radius);
-	echo '*';
-	white($radius);
-}
-
 function circle($radius)
 {
-	$j=0;
-	single($radius);
-	echo PHP_EOL;
-	for($i=round(2*($radius-1)+2);$i>0;$i-=2)
+	$radius=$radius/2;
+	$n=2*($radius-1)+$radius+2;
+
+	for($i=0;$i<$n;$i++)
 	{
-		$j++;
-		if($i>$radius)
+		$test=true;
+		$test2=false;
+		for($j=0;$j<$n;$j++)
 		{
-			white($radius-$j);
-			echo '*';
-			white($radius-$j);
-			echo '*';
-			white($radius-$j);
-			echo PHP_EOL;
+			$x=$i-($radius);
+			$x=$x*$x;
+			$y=$j-($radius);
+			$y=$y*$y;
+			if($x+$y-1<$radius*$radius)
+			{
+				$test=false;
+				echo '**';
+			}
+			else
+			{
+				if($test==false) $test2=true;
+				echo '  ';
+			}
+			if($test2) break;
 		}
-		else
-		{
-			white($radius-round($i/2));
-			echo '*';
-			white($radius-round($i/2));
-			echo '*';
-			white($radius-round($i/2));
-			echo PHP_EOL;
-		}
+		echo PHP_EOL;
+		if($test) break;
 	}
-	if(!$radius==0)single($radius);
 }
 
 
