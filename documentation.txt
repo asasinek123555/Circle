@@ -1,0 +1,51 @@
+EN
+_____________________________
+
+
+_____________________________
+
+
+PL
+_____________________________
+
+INFORMACJE WSTĘPNE
+	Do popranego działania programu należy uruchomić core.php w interpreterze php w konsoli razem z odpowiednimi argumentami.
+	
+
+WARTOŚĆI PRZYJMOWANE:
+	Program przyjmuje 2 argumenty w podanej kolejności:
+		- liczbe całkowitą,
+		- dwu literowy skrót języka.
+	Jeżeli niepodany lub podany zostanie błędny argument pierwszt pierwszy program wyświetli wiadomość że należy go podać.
+	W przypadku niepodania lub podania błędnego arumentu drugiego program przyjmie te wartość jako domyślną jaką jest "PL".
+	po podaniu poprawnego argumentu 2 program wszystkie komunikaty wypisuje w wybranym języku.
+	Podanie jako którykolwiek argument jednego z następujących ciągów znaków (bez względu na wielkość liter): "help", "-help", "--help", "-h", "/h" spowoduje wyświetlenie pomocy.
+	Jeśli jednocześnie podasz jako drógi argument dwuliterowy srót od dostępnego języka to pomoc wypisze się w wybranym języku.
+
+PLIKI JĘZYKOWE:
+	pliki językowe wyglądają w następujący sposób:
+	- nazwa: [Dwu_literowy_srót_od_języka].lang,
+	- linia 1: [wiadomość_wywietlana_jeśli_nie_podasz_argumętu_pierwszego]
+	- linia 2: [wiadomość_wywietlana_jeśli_promien_nie_będzie_poprawny]
+	- linia 3: [wiadomość_wywietlana_przed_wypisaniem_koła_w_konsoli]
+	- linia 4-7: [wiadomośi_pomocy]
+	Przykładowy plik językowy wygląda następująco:
+	Musisz podać promień jako pierwszą wartość
+	promień musi być całkowity
+	koło:
+	_____________________________________________________________________________
+	jako pierwszą wartość podaj liczbę.
+	jako drugą wartość podaj dwuliterowy skrót od używaniego języka (opcjonalnie)
+	_____________________________________________________________________________
+
+FUNKCJE:
+	checkhelp( string ) : BOOL
+		- sprawdza czy podany ciąg znaków jest jednym z następujących: "help", "-help", "--help", "-h", "/h"
+	write_help( lang array)
+		- wypisuje wartości z tabeli o kluczach 4, 5, 6, 7 i dodaje EOL na koncu ostatniego
+	loadLang($lang_short) : lang array
+		- zwraca tebele wraz z tekstami wczytanymi z pliku językowego
+	circle($radius)
+		- wypisuje koło o zadanym promieniu
+	wszystko co znajduje się w core.php w głównym katalogu jest tak zwaną funkcją main
+_____________________________
